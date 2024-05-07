@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <title>Fee Subbmission</title>
+</head>
+
+<!--https://docs.google.com/forms/d/e/1FAIpQLSeTEOUjDHOiZoIWk05ysvq-K6IHWuXrA76cRqfjhHonA85xlg/viewform
+    ?usp=pp_url&
+    entry.1418712473=name&
+    entry.2070951084=STDID&
+    entry.646545005=Course&
+    entry.1425875669=2&
+    entry.1331278796=2-->
+
+
+<script>
+    var subbmited=false;
+    console.log("Kunal Upadhyay");
+</script>
+<iframe src="" frameborder="0" name="ptp" id="ptp" style="display: none;" onload="if(subbmited){window.location='Payment.html';}"></iframe>
+
+
+
+
+<body id="tsparticles">
+    <header>
+        <div id="hdlogo">
+            <img src="IMG/BlazeForgeLogod.png" alt="BlazeForgeLogo">
+            <div>
+                <h1 style="color:white;letter-spacing: 2px;line-height:25px;">BLAZ</h2>
+                <h1 style="color:#ffde59">FORG</h2>
+            </div>
+                <h1 style="color:#ffde59;font-size:70px;padding-bottom:5px;">E</h2>
+        </div>
+
+        <div style="margin-right: 15px;line-height: 25px;">
+            <h2 style="color:#ffde59;letter-spacing: 1px;">Fee</h2>
+            <h2 style="color: white;letter-spacing: 1px;">Submission</h2>
+        </div>
+    </header>
+
+    
+    <main>
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSeTEOUjDHOiZoIWk05ysvq-K6IHWuXrA76cRqfjhHonA85xlg/formResponse" method="post" target="ptp" onsubmit="subbmited=true" id="myForm">
+            <div class="form">
+                <label for="">Name: </label>
+                <input class="input" placeholder="Full Name" required="1" type="text" name="entry.1418712473">
+                <span class="input-border"></span>
+            </div>
+            <div class="form">
+                <label for="">Student ID: </label>
+                <input class="input" placeholder="FfLl000c" required="1" type="text" name="entry.2070951084">
+                <span class="input-border"></span>
+            </div>
+            <div class="form">
+                <label for="">Course: </label>
+                <input class="input" placeholder="Select Course" required="1" type="text" list="cource" name="entry.646545005">
+                <span class="input-border"></span>
+            </div>
+            <datalist id="cource">
+                <option value="C Programming"></option>
+                <option value="C++ Programming"></option>
+                <option value="DSA with C"></option>
+                <option value="Java Programming"></option>
+                <option value="Python Programming"></option>
+                <option value="Web Devlopment"></option>
+            </datalist>
+            <div class="form">
+                <label for="">Batch: </label>
+                <input class="input" placeholder="Enter Batch" required="1" type="number" name="entry.1425875669" min="1" max="4">
+                <span class="input-border"></span>
+            </div>
+            <div class="form">
+                <label for="">Month: </label>
+                <input class="input" placeholder="Enter Month" required="1" type="number" name="entry.1331278796" min="1" max="3">
+                <span class="input-border"></span>
+            </div>
+            <button type="submit" onclick="go()">Proceed To Pay</button>
+        </form>
+    </main>
+
+    <div id="wait">
+        <h2>
+            Proceeding 
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle fill="#FFFFFF" stroke="#FFFFFF" stroke-width="7" r="15" cx="35" cy="100"><animate attributeName="cx" calcMode="spline" dur="1.5" values="35;165;165;35;35" keySplines="0 .1 .5 1;0 .1 .5 1;0 .1 .5 1;0 .1 .5 1" repeatCount="indefinite" begin="0"></animate></circle><circle fill="#FFFFFF" stroke="#FFFFFF" stroke-width="7" opacity=".8" r="15" cx="35" cy="100"><animate attributeName="cx" calcMode="spline" dur="1.5" values="35;165;165;35;35" keySplines="0 .1 .5 1;0 .1 .5 1;0 .1 .5 1;0 .1 .5 1" repeatCount="indefinite" begin="0.05"></animate></circle><circle fill="#FFFFFF" stroke="#FFFFFF" stroke-width="7" opacity=".6" r="15" cx="35" cy="100"><animate attributeName="cx" calcMode="spline" dur="1.5" values="35;165;165;35;35" keySplines="0 .1 .5 1;0 .1 .5 1;0 .1 .5 1;0 .1 .5 1" repeatCount="indefinite" begin=".1"></animate></circle><circle fill="#FFFFFF" stroke="#FFFFFF" stroke-width="7" opacity=".4" r="15" cx="35" cy="100"><animate attributeName="cx" calcMode="spline" dur="1.5" values="35;165;165;35;35" keySplines="0 .1 .5 1;0 .1 .5 1;0 .1 .5 1;0 .1 .5 1" repeatCount="indefinite" begin=".15"></animate></circle><circle fill="#FFFFFF" stroke="#FFFFFF" stroke-width="7" opacity=".2" r="15" cx="35" cy="100"><animate attributeName="cx" calcMode="spline" dur="1.5" values="35;165;165;35;35" keySplines="0 .1 .5 1;0 .1 .5 1;0 .1 .5 1;0 .1 .5 1" repeatCount="indefinite" begin=".2"></animate></circle></svg>
+        </h2>                
+    </div>
+
+    <footer>
+        
+    </footer>
+</body>
+<script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tsparticles/all@3.3.0/tsparticles.all.bundle.min.js" integrity="sha256-8EvHON1tL0Ifl7OgUbya4HLqqGKhVlcdU5ld2AMruIs=" crossorigin="anonymous"></script>
+<script>
+    (async () => {
+  await loadAll(tsParticles); // not needed if using the bundle script, required for any other installation
+
+  await tsParticles.load({
+    id: "tsparticles",
+    url: "bg.json",
+  })})();
+</script>
+</html>

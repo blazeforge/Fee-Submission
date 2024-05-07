@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="CSS/style.css">
+  <title>Fee Subbmission</title>
+</head>
+<style>
+  body{
+  color: aqua;
+  }
+  h2{
+    font-family: 'Montserrat', sans-serif;
+    
+  }
+    label[for="image"]{
+        color: white;
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+        border: 3px dashed aqua;
+        border-radius: 10px;
+        width: 80%;
+        padding-block: 44px;
+        cursor: pointer;
+    }
+    label[for="image"]+input{
+        display: none;
+    }
+    form img{
+        width: 50%;
+        height: 50%;
+        display: block;
+        margin:  20px auto;
+    }
+</style>
+<body>
+    <header>
+        <div id="hdlogo">
+            <img src="IMG/BlazeForgeLogod.png" alt="BlazeForgeLogo">
+            <div>
+                <h1 style="color:white;letter-spacing: 2px;line-height:25px;">BLAZ</h2>
+                <h1 style="color:#ffde59">FORG</h2>
+            </div>
+                <h1 style="color:#ffde59;font-size:70px;padding-bottom:5px;">E</h2>
+        </div>
+
+        <div style="margin-right: 15px;line-height: 25px;">
+            <h2 style="color:#ffde59;letter-spacing: 1px;">Fee</h2>
+            <h2 style="color: white;letter-spacing: 1px;">Submission</h2>
+        </div>
+    </header>
+  
+    <main>
+        
+        <form id="uploadForm">
+
+            <h2 style="text-align: center;">Pay 1099/-</h2>
+            <a href="upi://pay?pa=prateekkumar223@oksbi&pn=Prateek%20Kumar&aid=uGICAgICj5_rNIg">
+                <img src="IMG/QR.png" alt="PaymentQR">
+            </a>
+            <p style="text-align: center;">UPI ID: prateekkumar223@oksbi</p>
+
+            <div class="form">
+                <label for="">Student ID : </label>
+                <input class="input" placeholder="FfLl000c" required="1" type="text" id="name" name="name">
+                <span class="input-border"></span>
+            </div>
+        
+            <label for="image">
+                Upload Payment Screen Shot with transaction id
+                <img src="" alt="" id="img" width="50">
+            </label>
+            <input type="file" id="image" name="image" accept="image/*" required><br>
+        
+            <button type="submit">Submit</button>
+          </form>
+    </main>
+
+    <div id="wait">
+      <h2>
+          Submitting 
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle fill="#FFFFFF" stroke="#FFFFFF" stroke-width="7" r="15" cx="35" cy="100"><animate attributeName="cx" calcMode="spline" dur="1.5" values="35;165;165;35;35" keySplines="0 .1 .5 1;0 .1 .5 1;0 .1 .5 1;0 .1 .5 1" repeatCount="indefinite" begin="0"></animate></circle><circle fill="#FFFFFF" stroke="#FFFFFF" stroke-width="7" opacity=".8" r="15" cx="35" cy="100"><animate attributeName="cx" calcMode="spline" dur="1.5" values="35;165;165;35;35" keySplines="0 .1 .5 1;0 .1 .5 1;0 .1 .5 1;0 .1 .5 1" repeatCount="indefinite" begin="0.05"></animate></circle><circle fill="#FFFFFF" stroke="#FFFFFF" stroke-width="7" opacity=".6" r="15" cx="35" cy="100"><animate attributeName="cx" calcMode="spline" dur="1.5" values="35;165;165;35;35" keySplines="0 .1 .5 1;0 .1 .5 1;0 .1 .5 1;0 .1 .5 1" repeatCount="indefinite" begin=".1"></animate></circle><circle fill="#FFFFFF" stroke="#FFFFFF" stroke-width="7" opacity=".4" r="15" cx="35" cy="100"><animate attributeName="cx" calcMode="spline" dur="1.5" values="35;165;165;35;35" keySplines="0 .1 .5 1;0 .1 .5 1;0 .1 .5 1;0 .1 .5 1" repeatCount="indefinite" begin=".15"></animate></circle><circle fill="#FFFFFF" stroke="#FFFFFF" stroke-width="7" opacity=".2" r="15" cx="35" cy="100"><animate attributeName="cx" calcMode="spline" dur="1.5" values="35;165;165;35;35" keySplines="0 .1 .5 1;0 .1 .5 1;0 .1 .5 1;0 .1 .5 1" repeatCount="indefinite" begin=".2"></animate></circle></svg>
+      </h2>                
+  </div>
+
+  <script>
+    document.getElementById('uploadForm').addEventListener('submit', function (e) {
+      
+      e.preventDefault();
+
+      var name = document.getElementById('name').value;
+      var imageInput = document.getElementById('image');
+      let url='https://script.google.com/macros/s/AKfycbxWyELnL2ih0MFfqVV7OGb48pyD-jB2sKpo9MbdPHdHqkmOetkC69831MwRVJiXB3dt/exec';
+      if (imageInput.files.length > 0) {
+        var wait = document.getElementById("wait");
+        var bd = document.getElementsByTagName("body")[0];
+        bd.style.overflow="hidden";
+        wait.style.display="flex"; 
+      
+        var imageFile = imageInput.files[0];
+        
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          var imageData = e.target.result.split(',')[1];
+          
+          var data = {
+            name: name,
+            imageData: imageData
+          };
+
+          fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+          })
+          .then(response => response.text())
+          .then(message => {
+            alert(message);
+            window.location="End.html";
+            // You can also update the UI or perform additional actions after successful submission.
+          })
+          .catch(error => console.error('Error:', error));
+        };
+        
+        reader.readAsDataURL(imageFile);
+      } else {
+        alert("Please select an image.");
+      }
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/all@3.3.0/tsparticles.all.bundle.min.js" integrity="sha256-8EvHON1tL0Ifl7OgUbya4HLqqGKhVlcdU5ld2AMruIs=" crossorigin="anonymous"></script>
+  <script>
+      (async () => {
+    await loadAll(tsParticles); // not needed if using the bundle script, required for any other installation
+  
+    await tsParticles.load({
+      id: "tsparticles",
+      url: "bg.json",
+    })})();
+  </script>
+</body>
+</html>

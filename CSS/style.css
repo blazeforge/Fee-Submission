@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+ }
+
+body{
+    background-image: url('../bg.jpg');
+    background-position:center;
+    background-repeat: no-repeat;
+}
+header{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    background-color: #03112bdf;
+    align-items: center;
+    justify-content: space-between;
+    height: 12vh;
+    box-shadow:aqua 0px 1px 7px ;
+    z-index: 2;
+}
+header img{
+    height: 125px;
+    width: 100px;
+    object-fit: cover;
+}
+#hdlogo{
+    display:flex;
+    align-items:center;
+    margin-left: 10px;
+}
+header h1{
+    font-family: 'Montserrat', sans-serif;
+    font-size:25px;
+}
+h2{
+    font-family: 'Montserrat', sans-serif;
+    text-align:center;
+}
+main{
+    padding-top: 15vh;
+    backdrop-filter: blur(1px);
+    position: relative;
+    z-index: 1;
+}
+form{
+    margin: 50px auto;
+    background-color: #03112bdf;
+    width: 60%;
+    padding-block: 40px;
+    border-radius: 5px;
+    box-shadow: aqua 0px 0px 10px 1px;
+    
+}
+label{
+    color: white;
+    padding-inline: 0.4em;
+    padding-block: 0.7em;
+    font-family:  sans-serif;
+    font-size:1.2rem;
+}
+
+.form {
+    margin: 25px auto ;
+    --width-of-input: 320px;
+    --border-height: 1px;
+    --border-before-color: rgba(221, 221, 221, 0.39);
+    --border-after-color: aqua;
+    --input-hovered-color: #4985e01f;
+    position: relative;
+    width: var(--width-of-input);
+   }
+   /* styling of Input */
+   .input {
+    color: #fff;
+    font-size: 1.2rem;
+    background-color: transparent;
+    width: 100%;
+    box-sizing: border-box;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
+    border: none;
+    border-bottom: var(--border-height) solid var(--border-before-color);
+   }
+   /* styling of animated border */
+   .input-border {
+    position: absolute;
+    background: var(--border-after-color);
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s;
+   }
+   /* Hover on Input */
+   input:hover {
+    background: var(--input-hovered-color);
+   }
+   
+   input:focus {
+    outline: none;
+   }
+   /* here is code of animated border */
+   input:focus ~ .input-border {
+    width: 100%;
+   }
+   /* === if you want to do animated border on typing === */
+   /* remove input:focus code and uncomment below code */
+   /* input:valid ~ .input-border{
+     width: 100%;
+   } */
+
+   button{
+    margin: auto;
+    display: block;
+    background-color: white;
+    padding-block: 10px;
+    padding-inline: 20px;
+    border-radius: 5px;
+    margin-top: 55px;
+    transition: all .2s;
+    font-size: 1.2rem;
+    border: none;
+   }
+   button:hover{
+    border-radius: 7px;
+    padding-inline: 40px;
+   }
+   button:active{
+    box-shadow: 0px 0px 12px whitesmoke;
+   }
+
+
+ @media screen and (max-width: 900px) {
+    .form{
+        --width-of-input: 200px;
+    }
+    .input,label{
+        font-size: 0.9rem;
+    }
+    button{
+        font-size: 0.9rem;
+    }
+    button:hover{
+        border-radius: 7px;
+        padding-inline: 27px;
+       }
+}
+
+
+footer{
+    position: relative;
+    z-index: 1;
+}
+
+@media screen and (max-width: 500px) {
+    form{
+      width: 90%;
+  }
+  }
+
+  #wait{
+    position:fixed;
+    top: 0;
+    background-color: #455063c0;
+    width: 100vw;
+    height: 100vh;
+    display:none;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+  }
+  #wait h2{
+    padding: 32px 40px 0px 40px; 
+    color: white;
+    background-color: #03112b;
+    height: fit-content;
+    border-radius: 10px;
+  }
